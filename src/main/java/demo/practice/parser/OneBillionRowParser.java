@@ -1,7 +1,6 @@
 package demo.practice.parser;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
@@ -18,10 +17,8 @@ public class OneBillionRowParser {
   }
 
   public Map<String, WeatherResult> parse() {
-    int i = 0;
     try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
       for (String line; (line = br.readLine()) != null; ) {
-        i++;
         String[] split = line.split(DELIMITER);
         String stationName = split[0];
         if (!temperatureByWeatherStation.containsKey(stationName)) {
